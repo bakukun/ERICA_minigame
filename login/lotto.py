@@ -54,7 +54,17 @@ def lotto_main():
     print("\n")
     for i in range(6):
         cnt += player_real.count(real[i])
-    print(cnt)
+    print("숫자",cnt,"개를 맞으셨네요!")
+    lottoregame()
+
+def lottoregame():
+    restart = input("\n다시 한 번 로또를 구매하시겠습니까?(Y/N)")
+    while (restart != "Y" and restart != "y" and restart !=  "N" and  restart != "n"):
+        restart = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
+    if (restart == "Y" or restart == "y"):
+        lotto_main()
+    elif (restart == "N" or restart == "n"):
+        print("게임을 종료합니다")
 
 def lottogame():
     start = input("일확천금 운빨겜 로또를 하러 오신걸 환영합니다!\n 로또를 구매하시겠습니까?(Y/N)")
