@@ -142,3 +142,4 @@ def lottogame(money, ID, passwd):
         print("게임을 종료합니다")
         members[ID] = passwd, money
         store_members(members)
+        main2()

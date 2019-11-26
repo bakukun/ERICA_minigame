@@ -7,10 +7,6 @@ def login(members):
     if ID in members:
         passwd, money = members[ID]
         if trypasswd == passwd:
-            if money >=0:
-                print('당신은', money ,'원을 보유하고 있군요!\n')
-            elif money < 0:
-                print('당신은', abs(money) ,'원의 빚이 있어요 ㅠㅠ\n')
             return ID, money, passwd
         else:
             print("비밀번호가 틀립니다. 처음 화면으로 돌아갑니다\n")
