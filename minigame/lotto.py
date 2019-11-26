@@ -141,5 +141,4 @@ def lottogame(money, ID, passwd):
     elif (start == "N" or start == "n"):
         print("게임을 종료합니다")
         members[ID] = passwd, money
-        store_members(members)
-        main2()
+        store_members(members)  # 여기서 main함수 호출하려면,,./?

@@ -51,7 +51,7 @@ def request():
         explain()
     elif (restart == "N" or restart == "n"):
         print("초기화면으로 돌아갑니다")
-        main2()
+        # 여기서 메인함수를 호출하려면..
 
 
 def lotto_explain():
