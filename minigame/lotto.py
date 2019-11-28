@@ -88,17 +88,19 @@ def lotto_main(money, ID, passwd):
 
 def lottoregame(money, ID, passwd):
     members = load_members()
-    restart = input("\n다시 한 번 로또를 구매하시겠습니까?(Y/N)")
+    restart = input("\n다시 한 번 로또를 구매하시겠습니까?(Y/N)\n")
     while (restart != "Y" and restart != "y" and restart !=  "N" and  restart != "n"):
         restart = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
     if (restart == "Y" or restart == "y"):
         members[ID] = passwd, money
         store_members(members)
-        lotto_main(money, ID, passwd)
+        lottogame2(money, ID, passwd)
     elif (restart == "N" or restart == "n"):
-        print("게임을 종료합니다")
         members[ID] = passwd, money
         store_members(members)
+        print("게임을 종료합니다")
+
+
 
 def lottogame(money, ID, passwd):
     members = load_members()
@@ -113,7 +115,7 @@ def lottogame(money, ID, passwd):
     print("5등 (숫자 2개 같을 경우) : 천원")
     print("============================\n")
 
-    start = input("로또를 구매하시겠습니까?(Y/N)")
+    start = input("로또를 구매하시겠습니까?(Y/N)\n")
     while (start != "Y" and start != "y" and start !=  "N" and  start != "n"):
         start = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
     if (start == "Y" or start == "y"):
@@ -141,4 +143,26 @@ def lottogame(money, ID, passwd):
     elif (start == "N" or start == "n"):
         print("게임을 종료합니다")
         members[ID] = passwd, money
-        store_members(members)  # 여기서 main함수 호출하려면,,./?
+        store_members(members)
+
+def lottogame2(money, ID, passwd):
+    if (money>=1000):
+        money -= 1000
+        print("천원이 차감되어 ",money, "원을 갖고 있습니다.")
+        lotto_main(money, ID, passwd)
+    else:
+        print("당신의 돈으론 로또를 사지 못합니다.\n도박은 가정파탄의 지름길 입니다.\n정말 빚을 내어 구매하시겠습니까?")
+        start2 = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
+        while (start2 != "Y" and start2 != "y" and start2 != "N" and start2 != "n"):
+            start2 = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
+        if (start2 == "Y" or start2 == "y"):
+            money -= 1000
+            print("천원이 차감되어 ", abs(money), "원의 빚을 갖고 있습니다.")
+            members[ID] = passwd, money
+            store_members(members)
+            lotto_main(money, ID, passwd)
+        elif (start2 == "N" or start2 == "n"):
+            print("게임을 종료합니다")
+            members[ID] = passwd, money
+            store_members(members)
+
