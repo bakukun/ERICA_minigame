@@ -36,6 +36,7 @@ def load_members():
     file.close()
     return members
 
-def new(ID,load_members()):
+def new(ID):
     members = load_members()
-    return ID, passwd, money
+    passwd, money = members[ID]
+    return money, ID, passwd

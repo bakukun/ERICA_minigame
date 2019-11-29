@@ -15,7 +15,7 @@ def main():
     for k in ment2:
         time.sleep(0.3)
         print(k, end='')
-    while (main2(new(ID,load_members())) != 0):
+    while (main2(new(ID)) != 0):
         pass #여기서 money를 새로운 값으로 갱신해야 할텐데 모르겠음
 
 
