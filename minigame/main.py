@@ -1,6 +1,7 @@
 from new_login import *
 from lotto import *
 from explain import *
+from theif_catch import *
 import time
 
 def main():
@@ -14,8 +15,8 @@ def main():
     for k in ment2:
         time.sleep(0.3)
         print(k, end='')
-    while (main2(money, ID, passwd) != 0):
-        members = load_members() #여기서 money를 새로운 값으로 갱신해야 할텐데 모르겠음
+    while (main2(new(ID,load_members())) != 0):
+        pass #여기서 money를 새로운 값으로 갱신해야 할텐데 모르겠음
 
 
 def main2(money, ID, passwd):
@@ -28,7 +29,7 @@ def main2(money, ID, passwd):
     print("1. 게임 설명듣기")
     print("2. 로또")
     print("3. 러시안룰렛")
-    print("4. 다함께 암산왕")
+    print("4. 다함께 암산왕") # 보류
     print("5. 도둑 잡기")
     print("6. 베스킨라빈스 31")
     print("7. 나가기")
@@ -44,7 +45,7 @@ def main2(money, ID, passwd):
     elif (number == "4"):
         print("================================")
     elif (number == "5"):
-        print("================================")
+        Thief_catch(ID)
     elif (number == "6"):
         print("================================")
     elif (number == "7"):

@@ -35,3 +35,7 @@ def load_members():
         members[name] = (passwd,int(money))
     file.close()
     return members
+
+def new(ID,load_members()):
+    members = load_members()
+    return ID, passwd, money
