@@ -17,12 +17,11 @@ def explain():
     elif (number == "2"):
         print("================================")
         print("1. 로또")
-        print("2. 다함께 암산왕")
-        print("3. 러시안 룰렛")
-        print("4. 베스킨라빈스31 내기")
-        print("5. 도둑잡기")
+        print("2. 러시안 룰렛")
+        print("3. 베스킨라빈스31 내기")
+        print("4. 도둑잡기")
         number2 = input("궁금하신 게임 설명의 번호를 선택해주세요\n")
-        while (number2 != "1" and number2 != "2" and number2 != "3" and number2 != "4" and number2 != "5"):
+        while (number2 != "1" and number2 != "2" and number2 != "3" and number2 != "4"):
             number2 = input("숫자 정확하게 입력해주세요!\n")
         if (number2 == "1"):
             print("================================")
@@ -30,24 +29,20 @@ def explain():
             request()
         elif (number2 == "2"):
             print("================================")
-            math_explain()
+            roulette_explain()
             request()
         elif (number2 == "3"):
             print("================================")
-            roulette_explain()
+            icecream_explain()
             request()
         elif (number2 == "4"):
             print("================================")
-            icecream_explain()
-            request()
-        elif (number2 == "5"):
-            print("================================")
             theif_explain()
             request()
+
     elif (number == "3"):
         print("================================")
         print("로또 무료")
-        print("다함께 암산왕 : 5만원")
         print("러시안 룰렛: 10만원")
         print("베스킨 라빈스31: 10만원")
         print("도둑잡기 : 20만원")
@@ -80,13 +75,6 @@ def lotto_explain():
     print("============================")
     print("게임 해금 여부 상관 없이 이용 가능합니다.")
 
-def math_explain():
-    print("간단한 사칙연산을 바탕으로 빠른시간안에 정확하게 주어진 20문제를 풀어야 하는 게임입니다!")
-    print("난이도는 하 / 상 이 있으며, 난이도 구분은 연산 기호로 나눠집니다")
-    print("하 난이도는 덧셈과 뺄셈만 출현, 상 난이도는 덧셈 뺄셈 곱셈 나눗셈 전부 출현")
-    print("연속해서 문제를 틀리지 않고 정확히 맞추면 더 많은 돈을 획득 할 수 있습니다!")
-    print("게임이 시작하고 나서 주어진 시간안에 문제를 빠르게 푼다면 더 많은 돈을 획득 할 수 있습니다!")
-    print("게임 구매 비용은 오만원 입니다")
 
 def roulette_explain():
     print("컴퓨터와 돈을 걸고 진땀나는 승부를 겨뤄보세요!")

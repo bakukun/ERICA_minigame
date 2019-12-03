@@ -2,6 +2,7 @@ from new_login import *
 from lotto import *
 from explain import *
 from theif_catch import *
+from roulette import *
 import time
 
 def main():
@@ -30,26 +31,23 @@ def main2(money, ID, passwd):
     print("1. 게임 설명듣기")
     print("2. 로또")
     print("3. 러시안룰렛")
-    print("4. 다함께 암산왕") # 보류
+    print("4. 베스킨라빈스 31") # 보류
     print("5. 도둑 잡기")
-    print("6. 베스킨라빈스 31")
-    print("7. 나가기")
+    print("6. 나가기")
     number = input("플레이 하실 게임의 번호를 선택해주세요\n")
-    while (number != "1" and number != "2" and number != "3" and number != "4" and number != "5" and number != "6" and number != "7"):
+    while (number != "1" and number != "2" and number != "3" and number != "4" and number != "5" and number != "6"):
         number = input("숫자를 정확하게 입력해주세요!\n")
     if (number == "1"):
         explain()
     elif (number == "2"):
         lottogame(money, ID, passwd)
     elif (number == "3"):
-        print("================================")
+        roulettegame(money, ID, passwd)
     elif (number == "4"):
         print("================================")
     elif (number == "5"):
         Thief_catch(ID)
     elif (number == "6"):
-        print("================================")
-    elif (number == "7"):
         print("================================")
         print("게임을 종료합니다 또 만나요~")
         return 0
