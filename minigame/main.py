@@ -3,6 +3,7 @@ from lotto import *
 from explain import *
 from theif_catch import *
 from roulette import *
+from icecream import *
 import time
 
 def main():
@@ -44,7 +45,7 @@ def main2(money, ID, passwd):
     elif (number == "3"):
         roulettegame(money, ID, passwd)
     elif (number == "4"):
-        print("================================")
+        icecreamgame(money, ID, passwd)
     elif (number == "5"):
         Thief_catch(ID)
     elif (number == "6"):
