@@ -21,7 +21,13 @@ def roulettegame(money, ID, passwd):
         start = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
     if (start == "Y" or start == "y"):
         print("현재 ",money,"원 보유중입니다")
-        bat = int(input("내기로 거실 금액을 입력해주세요 이기면 두배 지면 전부 잃음!\n"))
+        while (True):  # 입력 예외처리
+            try:
+                bat = int(input("내기로 거실 금액을 입력해주세요 이기면 두배 지면 전부 잃음!\n"))
+            except ValueError:
+                print("자연수를 입력해주세요.")
+            else :
+                break
         if (money>=bat):
             money -= bat
             print(bat,"원이 차감되어 ",money,"원을 갖고 있습니다.")
@@ -41,7 +47,13 @@ def roulettegame(money, ID, passwd):
 def roulettegame2(money, ID, passwd):
     members = load_members()
     print("현재 ", money, "원 보유중입니다")
-    bat = int(input("내기로 거실 금액을 입력해주세요 이기면 두배 지면 전부 잃음!\n"))
+    while (True):  # 입력 예외처리
+        try:
+            bat = int(input("내기로 거실 금액을 입력해주세요 이기면 두배 지면 전부 잃음!\n"))
+        except ValueError:
+            print("자연수를 입력해주세요.")
+        else:
+            break
     if (money>=bat):
         money -= bat
         print(bat,"원이 차감되어 ",money, "원을 갖고 있습니다.")
@@ -92,7 +104,7 @@ def roulette_main(money, ID, passwd, bat):
             except Outrange :
                 print("범위를 벗어났습니다. 다시 골라주세요.")
             else :
-                break?
+                break
         print("현재 ",index,"번째 총알을 골랐습니다. 당겨볼까요..?")
         time.sleep(0.5)
         print("장전완료")
