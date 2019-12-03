@@ -75,7 +75,7 @@ def lotto_main(money, ID, passwd):
         print("오 현실로또에선 오천원이지만......\n여기서는 만원입니다^^*")
         print("만원이 추가되어 현재 보유금액은", money,"원 입니다")
     elif (cnt ==2):
-        money += 10000
+        money += 1000
         print("오 현실로또에선 꽝이지만......\n여기서는 천원입니다^^* 본전 개이득")
         print("천원이 추가되어 현재 보유금액은", money,"원 입니다")
     else:
