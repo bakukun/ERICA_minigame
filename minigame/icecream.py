@@ -56,7 +56,7 @@ def icecreamgame2(money, ID, passwd):
     if (money>=bat):
         money -= real_bat
         print("내기 금액의 반인",real_bat,"이 차감되어 ",money, "원을 갖고 있습니다.")
-        roulette_main(money, ID, passwd, bat)
+        icecream_main(money, ID, passwd, bat)
     else:
         print("\n당신의 보유금액으론 내기를 하지 못니다.\n도박은 가정파탄의 지름길 입니다.\n")
         print("배팅금액에 비해 정해진 기준의 잔고가 부족하여 게임을 종료합니다 다른 게임으로 돈을 벌고 오세요^0^")
