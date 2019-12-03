@@ -92,10 +92,8 @@ def roulette_main(money, ID, passwd, bat):
             except Outrange :
                 print("범위를 벗어났습니다. 다시 골라주세요.")
             else :
-                break
-        print("현재 ",index,"번째 총알을 골랐습니다.")
-        print(real_bullet)
-        print(real_bullet[index-1])
+                break?
+        print("현재 ",index,"번째 총알을 골랐습니다. 당겨볼까요..?")
         time.sleep(0.5)
         print("장전완료")
         time.sleep(0.5)
