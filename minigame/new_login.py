@@ -1,8 +1,8 @@
 def login(members):
     print("=================================================================")
-    ID = input("아이디를 입력하세요\n아이디가 없다면 계정이 새로 생성됩니다(최대 8자리 제한): \n")
-    while len(ID) > 9:
-        ID = input("아이디의 길이가 너무 깁니다! 다시 입력해주세요\n")
+    ID = input("아이디를 입력하세요(영어만 가능합니다)\n아이디가 없다면 계정이 새로 생성됩니다(최대 8자리 제한): \n")
+    while (len(ID) > 9 or len(ID) < 1 or ID.count(" ")>0):
+        ID = input("아이디의 형식이 적절하지 않습니다! 다시 입력해주세요\n")
     trypasswd = input("비밀번호를 입력하세요\n새로운 계정을 만드는 경우라면, 지금 입력하는 문자열이 비밀번호입니다!\n")
     if ID in members:
         passwd, money = members[ID]
