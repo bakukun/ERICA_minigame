@@ -19,7 +19,7 @@ def main():
         print(k, end='')
     while (main2(money,ID,passwd) != 0):
         money = load(ID)
-        pass
+        time.sleep(0.5)
 
 
 def main2(money, ID, passwd):
@@ -31,8 +31,8 @@ def main2(money, ID, passwd):
     print("================================")
     print("1. 게임 설명듣기")
     print("2. 로또")
-    print("3. 러시안룰렛")
-    print("4. 베스킨라빈스 31") # 보류
+    print("3. 베스킨라빈스 31")
+    print("4. 러시안룰렛")
     print("5. 도둑 잡기")
     print("6. 나가기")
     number = input("플레이 하실 게임의 번호를 선택해주세요\n")
@@ -43,9 +43,9 @@ def main2(money, ID, passwd):
     elif (number == "2"):
         lottogame(money, ID, passwd)
     elif (number == "3"):
-        roulettegame(money, ID, passwd)
-    elif (number == "4"):
         icecreamgame(money, ID, passwd)
+    elif (number == "4"):
+        roulettegame(money, ID, passwd)
     elif (number == "5"):
         Thief_catch(ID)
     elif (number == "6"):
