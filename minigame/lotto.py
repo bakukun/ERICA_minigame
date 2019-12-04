@@ -146,6 +146,7 @@ def lottogame(money, ID, passwd):
         store_members(members)
 
 def lottogame2(money, ID, passwd):
+    members = load_members()
     if (money>=1000):
         money -= 1000
         print("천원이 차감되어 ",money, "원을 갖고 있습니다.")
