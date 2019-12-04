@@ -24,8 +24,12 @@ def roulettegame(money, ID, passwd):
         while (True):  # 입력 예외처리
             try:
                 bat = int(input("내기로 거실 금액을 입력해주세요 이기면 두배 지면 전부 잃음!\n"))
+                if (bat<0):
+                    raise Outrange
             except ValueError:
                 print("자연수를 입력해주세요.")
+            except Outrange:
+                print("음수는 될 수 없어요")
             else :
                 break
         if (money>=bat):
@@ -50,8 +54,12 @@ def roulettegame2(money, ID, passwd):
     while (True):  # 입력 예외처리
         try:
             bat = int(input("내기로 거실 금액을 입력해주세요 이기면 두배 지면 전부 잃음!\n"))
+            if (bat<0):
+                raise Outrange
         except ValueError:
             print("자연수를 입력해주세요.")
+        except Outrange:
+            print("음수는 될 수 없어요")
         else:
             break
     if (money>=bat):

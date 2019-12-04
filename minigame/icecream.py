@@ -1,5 +1,6 @@
 from new_login import *
 import random,time
+class Outrange(Exception) : pass
 
 def icecreamgame(money, ID, passwd):
     members = load_members()
@@ -21,9 +22,13 @@ def icecreamgame(money, ID, passwd):
         while (True):  # 입력 예외처리
             try:
                 bat = int(input("내기로 거실 금액을 입력해주세요 이기면 반액 얻고 지면 반액 잃음!\n"))
+                if (bat < 0):
+                    raise Outrange
             except ValueError:
                 print("자연수를 입력해주세요.")
-            else :
+            except Outrange:
+                print("음수는 될 수 없어요")
+            else:
                 break
         real_bat = round(bat/2)
         if (money>=bat):
@@ -48,8 +53,12 @@ def icecreamgame2(money, ID, passwd):
     while (True):  # 입력 예외처리
         try:
             bat = int(input("내기로 거실 금액을 입력해주세요 이기면 반액 얻구 지면 반액 잃음!\n"))
+            if (bat < 0):
+                raise Outrange
         except ValueError:
             print("자연수를 입력해주세요.")
+        except Outrange:
+            print("음수는 될 수 없어요")
         else:
             break
     real_bat = round(bat / 2)
@@ -95,7 +104,7 @@ def icecream_main(money, ID, passwd,real_bat):
     count = 1
     while call < 31:
         if count % 2 == order:
-            print('사용자의 차례')
+            print(ID,'의 차례')
             while True:
                 size_of_call = input("말할 숫자의 개수를 입력하세요 (1~3개) :\n")
                 if size_of_call in ['1', '2', '3']:
@@ -105,7 +114,7 @@ def icecream_main(money, ID, passwd,real_bat):
                     print("잘못된 입력입니다. 재입력해주세요.\n")
             for _ in range(size_of_call):
                 call += 1
-                print("사용자 : '{0}'!!!".format(call))
+                print(ID,": '{0}'!!!".format(call))
                 if call == 31:
                     break
         else:
