@@ -75,7 +75,7 @@ def show_table(player_deck, computer1_deck, computer2_deck, computer3_deck) :
         print('', player_deck[i], end='')
 
 def More() :
-    restart = input("\n다시 한 번 실감나는 도둑잡를 하시겠습니까?(Y/N)\n")
+    restart = input("\n다시 한 번 실감나는 도둑잡기를 하시겠습니까?(Y/N)\n")
     while (restart != "Y" and restart != "y" and restart !=  "N" and  restart != "n"):
         restart = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
     if (restart == "Y" or restart == "y"):
