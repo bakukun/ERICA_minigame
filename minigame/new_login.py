@@ -32,7 +32,7 @@ def load_members():
     members = {}
     for data in file:
         name, passwd, money, icecream_ok, roulette_ok, theif_ok = data.strip('\n').split(',')
-        members[name] = (passwd,int(money), int(icecream_ok), int(roulette_ok), int(theif_ok))
+        members[name] = [passwd,int(money), int(icecream_ok), int(roulette_ok), int(theif_ok)]
     file.close()
     return members
 
@@ -43,3 +43,21 @@ def load(ID):
     roulette_ok = members[ID][3]
     theif_ok = members[ID][4]
     return money,icecream_ok,roulette_ok,theif_ok
+
+def new_ice(ID,icecream_ok):
+    members = load_members()
+    members[ID][2] = 1
+    members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
+    store_members()
+
+def new_roulette(ID,roulette_ok):
+    members = load_members()
+    members[ID][3] = 1
+    members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
+    store_members()
+
+def new_theif(ID, theif_ok):
+    members = load_members()
+    members[ID][4] = 1
+    members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
+    store_members()
