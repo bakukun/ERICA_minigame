@@ -1,4 +1,5 @@
 from new_login import *
+from store import *
 from lotto import *
 from explain import *
 from theif_catch import *
@@ -18,7 +19,7 @@ def main():
         time.sleep(0.3)
         print(k, end='')
     while (main2(money,ID,passwd, icecream_ok, roulette_ok, theif_ok) != 0):
-        money = load(ID)
+        money, icecream_ok, roulette_ok, theif_ok = load(ID)
         time.sleep(0.5)
 
 
@@ -42,15 +43,15 @@ def main2(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     if (number == "1"):
         explain()
     elif (number == "2"):
-        lottogame(money, ID, passwd)
+        lottogame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
     elif (number == "3"):
-        icecreamgame(money, ID, passwd)
+        icecreamgame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
     elif (number == "4"):
-        roulettegame(money, ID, passwd)
+        roulettegame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
     elif (number == "5"):
         Thief_catch(ID)
     elif (number == "6"):
-        store(money, ID , passwd, icecream_ok, roulette_ok, thief_ok)
+        store(money, ID , passwd, icecream_ok, roulette_ok, theif_ok)
     elif (number == "7"):
         print("================================")
         print("게임을 종료합니다 또 만나요~")

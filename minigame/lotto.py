@@ -2,7 +2,7 @@ from new_login import *
 import random
 import time
 
-def lotto_main(money, ID, passwd):
+def lotto_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     members = load_members()
     cnt = 0
     a = [] #print용도
@@ -82,27 +82,27 @@ def lotto_main(money, ID, passwd):
         print("꽝이네요....... \n그럴 수 있어요(토닥토닥)")
         print("현재 보유금액은", money,"원 입니다")
     print("===============================================")
-    members[ID] = passwd, money
+    members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
     store_members(members)
-    lottoregame(money, ID, passwd)
+    lottoregame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
 
-def lottoregame(money, ID, passwd):
+def lottoregame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     members = load_members()
     restart = input("\n다시 한 번 로또를 구매하시겠습니까?(Y/N)\n")
     while (restart != "Y" and restart != "y" and restart !=  "N" and  restart != "n"):
         restart = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
     if (restart == "Y" or restart == "y"):
-        members[ID] = passwd, money
+        members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
         store_members(members)
-        lottogame2(money, ID, passwd)
+        lottogame2(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
     elif (restart == "N" or restart == "n"):
-        members[ID] = passwd, money
+        members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
         store_members(members)
         print("게임을 종료합니다")
 
 
 
-def lottogame(money, ID, passwd):
+def lottogame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     members = load_members()
     print("============================\n")
     print("일확천금 운빨겜 로또를 하러 오신걸 환영합니다!\n한 장에 천원입니다\n통상적인 로또와 사뭇 다릅니다\n")
@@ -122,9 +122,9 @@ def lottogame(money, ID, passwd):
         if (money>=1000):
             money -= 1000
             print("천원이 차감되어 ",money, "원을 갖고 있습니다.")
-            members[ID] = passwd, money
+            members[ID] = passwd, money , icecream_ok, roulette_ok, theif_ok
             store_members(members)
-            lotto_main(money, ID, passwd)
+            lotto_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
         else:
             print("당신의 돈으론 로또를 사지 못합니다.\n도박은 가정파탄의 지름길 입니다.\n정말 빚을 내어 구매하시겠습니까?")
             start2 = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
@@ -133,24 +133,24 @@ def lottogame(money, ID, passwd):
             if (start2 == "Y" or start2 == "y"):
                 money -= 1000
                 print("천원이 차감되어 ", abs(money), "원의 빚을 갖고 있습니다.")
-                members[ID] = passwd, money
+                members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
                 store_members(members)
-                lotto_main(money, ID, passwd)
+                lotto_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
             elif (start2 == "N" or start2 == "n"):
                 print("게임을 종료합니다")
-                members[ID] = passwd, money
+                members[ID] = passwd, money , icecream_ok, roulette_ok, theif_ok
                 store_members(members)
     elif (start == "N" or start == "n"):
         print("게임을 종료합니다")
-        members[ID] = passwd, money
+        members[ID] = passwd, money , icecream_ok, roulette_ok, theif_ok
         store_members(members)
 
-def lottogame2(money, ID, passwd):
+def lottogame2(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     members = load_members()
     if (money>=1000):
         money -= 1000
         print("천원이 차감되어 ",money, "원을 갖고 있습니다.")
-        lotto_main(money, ID, passwd)
+        lotto_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
     else:
         print("당신의 돈으론 로또를 사지 못합니다.\n도박은 가정파탄의 지름길 입니다.\n정말 빚을 내어 구매하시겠습니까?")
         start2 = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
@@ -159,11 +159,11 @@ def lottogame2(money, ID, passwd):
         if (start2 == "Y" or start2 == "y"):
             money -= 1000
             print("천원이 차감되어 ", abs(money), "원의 빚을 갖고 있습니다.")
-            members[ID] = passwd, money
+            members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
             store_members(members)
-            lotto_main(money, ID, passwd)
+            lotto_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
         elif (start2 == "N" or start2 == "n"):
             print("게임을 종료합니다")
-            members[ID] = passwd, money
+            members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
             store_members(members)
 

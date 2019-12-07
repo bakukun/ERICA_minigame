@@ -2,7 +2,7 @@ from new_login import *
 import random,time
 class Outrange(Exception) : pass
 
-def icecreamgame(money, ID, passwd):
+def icecreamgame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     members = load_members()
     print("============================\n")
     print("귀엽고! 깜찍하게!! 베스킨라빈스 31게임을 컴퓨터와 즐겨보세요")
@@ -34,20 +34,20 @@ def icecreamgame(money, ID, passwd):
         if (money>=bat):
             money -= real_bat
             print("내기 금액의 반인",real_bat,"원이 차감되어 ",money,"원을 갖고 있습니다.")
-            members[ID] = passwd, money
+            members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
             store_members(members)
-            icecream_main(money, ID, passwd, real_bat)
+            icecream_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok, real_bat)
         else:
             print("\n당신의 보유금액으론 내기를 하지 못니다.\n도박은 가정파탄의 지름길 입니다.\n")
             print("배팅금액에 비해 정해진 기준의 잔고가 부족하여 게임을 종료합니다 다른 게임으로 돈을 벌고 오세요^0^")
-            members[ID] = passwd, money
+            members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
             store_members(members)
     elif (start == "N" or start == "n"):
         print("게임을 종료합니다")
-        members[ID] = passwd, money
+        members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
         store_members(members)
 
-def icecreamgame2(money, ID, passwd):
+def icecreamgame2(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     members = load_members()
     print("현재 ", money, "원 보유중입니다")
     while (True):  # 입력 예외처리
@@ -65,28 +65,28 @@ def icecreamgame2(money, ID, passwd):
     if (money>=bat):
         money -= real_bat
         print("내기 금액의 반인",real_bat,"이 차감되어 ",money, "원을 갖고 있습니다.")
-        icecream_main(money, ID, passwd, bat)
+        icecream_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok, bat)
     else:
-        print("\n당신의 보유금액으론 내기를 하지 못니다.\n도박은 가정파탄의 지름길 입니다.\n")
+        print("\n당신의 보유금액으론 내기를 하원지 못니다.\n도박은 가정파탄의 지름길 입니다.\n")
         print("배팅금액에 비해 정해진 기준의 잔고가 부족하여 게임을 종료합니다 다른 게임으로 돈을 벌고 오세요^0^")
-        members[ID] = passwd, money
+        members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
         store_members(members)
 
-def icecreamregame(money, ID, passwd):
+def icecreamregame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     members = load_members()
     restart = input("\n다시 한 번 내기를 하시겠습니까?(Y/N)\n")
     while (restart != "Y" and restart != "y" and restart !=  "N" and  restart != "n"):
         restart = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
     if (restart == "Y" or restart == "y"):
-        members[ID] = passwd, money
+        members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
         store_members(members)
-        icecreamgame2(money, ID, passwd)
+        icecreamgame2(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
     elif (restart == "N" or restart == "n"):
-        members[ID] = passwd, money
+        members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
         store_members(members)
         print("게임을 종료합니다")
 
-def icecream_main(money, ID, passwd,real_bat):
+def icecream_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok,real_bat):
     members = load_members()
     ment = "베스킨라빈스 31~~~\n"
     for k in ment:
@@ -135,6 +135,6 @@ def icecream_main(money, ID, passwd,real_bat):
     else:
         print("컴퓨터의 승리!!")
         print("현재 ",money,"원 보유중입니다")
-    members[ID] = passwd, money
+    members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
     store_members(members)
-    icecreamregame(money, ID, passwd)
+    icecreamregame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
