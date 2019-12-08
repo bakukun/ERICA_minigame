@@ -5,6 +5,7 @@ from explain import *
 from theif_catch import *
 from roulette import *
 from icecream import *
+from bank import *
 import time
 
 def main():
@@ -20,10 +21,11 @@ def main():
         print(k, end='')
     while (main2(money,ID,passwd, icecream_ok, roulette_ok, theif_ok) != 0):
         money, icecream_ok, roulette_ok, theif_ok = load(ID)
-        time.sleep(0.5)
+        time.sleep(0.7)
 
 
 def main2(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
+    print("================================")
     if (money >= 0):
         print("현재 ", money, "원을 보유하고 계십니다")
     elif (money < 0):
@@ -36,27 +38,45 @@ def main2(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     print("4. 러시안룰렛")
     print("5. 도둑 잡기")
     print("6. 게임 구매 상점")
-    print("7. 나가기")
-    number = input("플레이 하실 게임의 번호를 선택해주세요\n")
-    while (number != "1" and number != "2" and number != "3" and number != "4" and number != "5" and number != "6"):
+    print("7. 긴급 충전소")
+    print("8. 나가기")
+    number = input("플레이 하실 게임 혹은 기능의 번호를 선택해주세요\n")
+    while (
+            number != "1" and number != "2" and number != "3" and number != "4" and number != "5" and number != "6" and number != "7" and number != "8"):
         number = input("숫자를 정확하게 입력해주세요!\n")
     if (number == "1"):
         explain()
     elif (number == "2"):
         lottogame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
     elif (number == "3"):
-        icecreamgame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
+        if (icecream_ok == 0):
+            print("게임을 구매하시지 않으셨어요! 게임을 구매 후 진행 부탁드립니다.")
+            print("게임 가격은 100000원 입니다")
+        else:
+            icecreamgame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
     elif (number == "4"):
-        roulettegame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
+        if (roulette_ok == 0):
+            print("게임을 구매하시지 않으셨어요! 게임을 구매 후 진행 부탁드립니다.")
+            print("게임 가격은 100000원 입니다")
+        else:
+            roulettegame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
     elif (number == "5"):
-        Thief_catch(ID)
+        if (theif_ok == 0):
+            print("게임을 구매하시지 않으셨어요! 게임을 구매 후 진행 부탁드립니다.")
+            print("게임 가격은 200000원 입니다")
+        else:
+            Thief_catch(ID)
     elif (number == "6"):
-        store(money, ID , passwd, icecream_ok, roulette_ok, theif_ok)
+        if (theif_ok == 1 and icecream_ok == 1 and roulette_ok == 1):
+            print("구매하실 게임이 없습니다. 초기화면으로 돌아갑니다")
+        else:
+            store(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
     elif (number == "7"):
+        bank_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
+    elif (number == "8"):
         print("================================")
         print("게임을 종료합니다 또 만나요~")
         return 0
-
 
 
 
