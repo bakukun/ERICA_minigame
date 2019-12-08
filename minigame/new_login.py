@@ -47,7 +47,7 @@ def load(ID):
     thief_ok = members[ID][4]
     return money,icecream_ok,roulette_ok,thief_ok
 
-def new_ice(ID,icecream_ok):
+def new_ice(ID):
     members = load_members()
     icecream_ok = members[ID][2]
     icecream_ok = 1
