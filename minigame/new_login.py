@@ -1,10 +1,10 @@
 def login(members):
     print("=================================================================")
-    ID = input("아이디를 입력하세요(한글 or 영어 or 숫자만 가능합니다)// 영어는 대소문자를 구분합니다.\n"
+    ID = input("아이디를 입력하세요(한글 or 영어 or 숫자만 가능합니다)\n영어는 대소문자를 구분합니다.\n"
                "아이디가 없다면 계정이 새로 생성됩니다(최대 8자리 제한): \n")
     while (len(ID) > 9 or len(ID) < 1 or not(ID.isalnum())):
         ID = input("아이디의 형식이 적절하지 않습니다! 다시 입력해주세요\n")
-    trypasswd = input("비밀번호를 입력하세요(영어 or 숫자만 가능합니다)\n새로운 계정을 만드는 경우라면, 지금 입력하는 문자열이 비밀번호입니다!\n")
+    trypasswd = input("비밀번호를 입력하세요(한글 or 영어 or 숫자만 가능합니다)\n영어는 대소문자를 구분합니다.\n새로운 계정을 만드는 경우라면, 지금 입력하는 문자열이 비밀번호입니다!\n")
     while (not(trypasswd.isalnum())):
         trypasswd = input("비밀번호에 적절하지 않은 문자열이 포함 되어있습니다! 다시 입력해주세요\n")
     if ID in members:
@@ -17,7 +17,7 @@ def login(members):
     else:
         members[ID] = (trypasswd,100000,0,0,0)
         store_members(members)
-        print("새로운 계정을 생성했습니다. 새로운 계정으로 로그인 해주세요\n")
+        print("새로운 계정을 생성했습니다.\n새로운 계정으로 로그인 해주세요")
         login(load_members())
 
 
