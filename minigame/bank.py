@@ -13,6 +13,7 @@ def bank_main(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
         money = 10000
         print("구제 대상에 포함됩니다!")
         time.sleep(1)
+        print("=============================================")
         print("빚 청산과 함께", money, "원을 추가로 충전해 드렸습니다.")
         print("도박은 가정파탄의 지름길 입니다. 착하게 사세용")
         time.sleep(0.2)
