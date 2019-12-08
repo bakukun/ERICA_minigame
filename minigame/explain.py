@@ -37,7 +37,7 @@ def explain():
             request()
         elif (number2 == "4"):
             print("================================")
-            theif_explain()
+            thief_explain()
             request()
 
     elif (number == "3"):
@@ -97,7 +97,7 @@ def icecream_explain():
     print("반액의 소수점 부분은 버림이 됩니다 참고하세요")
     print("게임 구매금액은 십만원 입니다.")
 
-def theif_explain():
+def thief_explain():
     print("카드게임입니다~ 문양과 상관없이 같은 숫자로 된 카드 2장을 내려놓습니다")
     print("상대방의 카드를 번갈아 뽑다보면 숫자 / JKQ 카드는 전부 내려놓게 됩니다")
     print("다만 조커 카드를 가지고 있다면 이야기가 달라집니다. 조커카드를 마지막 까지 갖고있다면 패배하게 됩니다")

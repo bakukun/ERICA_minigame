@@ -4,7 +4,7 @@ import random
 import time
 
 
-def roulettegame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
+def roulettegame(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
     members = load_members()
     print("============================\n")
     print("컴퓨터와 돈을 걸고 진땀나는 승부를 겨뤄보세요!")
@@ -35,20 +35,20 @@ def roulettegame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
         if (money>=bat):
             money -= bat
             print(bat,"원이 차감되어 ",money,"원을 갖고 있습니다.")
-            members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
+            members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
             store_members(members)
-            roulette_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok, bat)
+            roulette_main(money, ID, passwd, icecream_ok, roulette_ok, thief_ok, bat)
         else:
             print("\n당신의 보유금액으론 내기를 하지 못니다.\n도박은 가정파탄의 지름길 입니다.\n")
             print("잔고가 부족하여 게임을 종료합니다 다른 게임으로 돈을 벌고 오세요^0^")
-            members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
+            members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
             store_members(members)
     elif (start == "N" or start == "n"):
         print("게임을 종료합니다")
-        members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
+        members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
         store_members(members)
 
-def roulettegame2(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
+def roulettegame2(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
     members = load_members()
     print("현재 ", money, "원 보유중입니다")
     while (True):  # 입력 예외처리
@@ -65,29 +65,29 @@ def roulettegame2(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     if (money>=bat):
         money -= bat
         print(bat,"원이 차감되어 ",money, "원을 갖고 있습니다.")
-        roulette_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok, bat)
+        roulette_main(money, ID, passwd, icecream_ok, roulette_ok, thief_ok, bat)
     else:
         print("\n당신의 보유금액으론 내기를 하지 못니다.\n도박은 가정파탄의 지름길 입니다.\n")
         print("잔고가 부족하여 게임을 종료합니다 다른 게임으로 돈을 벌고 오세요^0^")
-        members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
+        members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
         store_members(members)
 
-def rouletteregame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
+def rouletteregame(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
     members = load_members()
     restart = input("\n다시 한 번 내기를 하시겠습니까?(Y/N)\n")
     while (restart != "Y" and restart != "y" and restart !=  "N" and  restart != "n"):
         restart = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
     if (restart == "Y" or restart == "y"):
-        members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
+        members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
         store_members(members)
-        roulettegame2(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
+        roulettegame2(money, ID, passwd, icecream_ok, roulette_ok, thief_ok)
     elif (restart == "N" or restart == "n"):
-        members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
+        members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
         store_members(members)
         print("게임을 종료합니다")
 
 
-def roulette_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok, bat):
+def roulette_main(money, ID, passwd, icecream_ok, roulette_ok, thief_ok, bat):
     members = load_members()
     bullet = [[1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 1, 0],
             [0, 0, 0, 0, 0, 1]]
@@ -137,6 +137,6 @@ def roulette_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok, bat):
             else:
                 print("한번 더 뽑으세요!")
 
-    members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
+    members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
     store_members(members)
-    rouletteregame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
+    rouletteregame(money, ID, passwd, icecream_ok, roulette_ok, thief_ok)
