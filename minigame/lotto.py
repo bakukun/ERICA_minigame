@@ -61,26 +61,30 @@ def lotto_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     if (cnt==6):
         money += 2100000000
         print("와 이런 미니게임에서 숫자 6개가 나오다니......\n현실로또 꼭 사세요")
-        print("21억원이 추가되어 현재 보유금액은", money,"원 입니다")
-    elif (cnt==5):
+        print("21억원이 추가되어 현재 보유금액은", money, "원 입니다")
+    elif (cnt == 5):
         money += 100000000
         print("와 이런 미니게임에서 숫자 5개가 나오다니......\n현실로또 꼭 사세요")
-        print("1억원이 추가되어 현재 보유금액은", money,"원 입니다")
-    elif (cnt==4):
+        print("1억원이 추가되어 현재 보유금액은", money, "원 입니다")
+    elif (cnt == 4):
         money += 1000000
         print("와 이런 미니게임에서 숫자 4개가 나오다니......\n현실로또 꼭 사세요")
-        print("백만원이 추가되어 현재 보유금액은", money,"원 입니다")
-    elif (cnt ==3):
-        money += 10000
-        print("오 현실로또에선 오천원이지만......\n여기서는 만원입니다^^*")
-        print("만원이 추가되어 현재 보유금액은", money,"원 입니다")
-    elif (cnt ==2):
+        print("백만원이 추가되어 현재 보유금액은", money, "원 입니다")
+    elif (cnt == 3):
+        money += 30000
+        print("오 현실로또에선 5000원이지만......\n여기서는 3만원입니다^^*")
+        print("만원이 추가되어 현재 보유금액은", money, "원 입니다")
+    elif (cnt == 2):
+        money += 5000
+        print("오 현실로또에선 이지만......\n여기서는 5000원입니다^^*")
+        print("만원이 추가되어 현재 보유금액은", money, "원 입니다")
+    elif (cnt == 1):
         money += 1000
         print("오 현실로또에선 꽝이지만......\n여기서는 천원입니다^^* 본전 개이득")
-        print("천원이 추가되어 현재 보유금액은", money,"원 입니다")
+        print("천원이 추가되어 현재 보유금액은", money, "원 입니다")
     else:
         print("꽝이네요....... \n그럴 수 있어요(토닥토닥)")
-        print("현재 보유금액은", money,"원 입니다")
+        print("현재 보유금액은", money, "원 입니다")
     print("===============================================")
     members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
     store_members(members)
@@ -106,23 +110,24 @@ def lottogame(money, ID, passwd, icecream_ok, roulette_ok, theif_ok):
     members = load_members()
     print("============================\n")
     print("일확천금 운빨겜 로또를 하러 오신걸 환영합니다!\n한 장에 천원입니다\n통상적인 로또와 사뭇 다릅니다\n")
-    print(ID,"님은 ",money,"원을 가지고 있어요")
+    print(ID, "님은 ", money, "원을 가지고 있어요")
     print("============당첨금============")
     print("1등 (숫자 6개 같을 경우) : 21억원")
     print("2등 (숫자 5개 같을 경우) : 1억원")
     print("3등 (숫자 4개 같을 경우) : 백만원")
     print("4등 (숫자 3개 같을 경우) : 만원")
-    print("5등 (숫자 2개 같을 경우) : 천원")
+    print("5등 (숫자 2개 같을 경우) : 오천원")
+    print("6등 (숫자 1개 같을 경우) : 천원")
     print("============================\n")
 
     start = input("로또를 구매하시겠습니까?(Y/N)\n")
-    while (start != "Y" and start != "y" and start !=  "N" and  start != "n"):
+    while (start != "Y" and start != "y" and start != "N" and start != "n"):
         start = input("대문자 혹은 소문자로 y와 n을 정확하게 입력해주세요!\n")
     if (start == "Y" or start == "y"):
-        if (money>=1000):
+        if (money >= 1000):
             money -= 1000
-            print("천원이 차감되어 ",money, "원을 갖고 있습니다.")
-            members[ID] = passwd, money , icecream_ok, roulette_ok, theif_ok
+            print("천원이 차감되어 ", money, "원을 갖고 있습니다.")
+            members[ID] = passwd, money, icecream_ok, roulette_ok, theif_ok
             store_members(members)
             lotto_main(money, ID, passwd, icecream_ok, roulette_ok, theif_ok)
         else:
