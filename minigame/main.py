@@ -9,7 +9,7 @@ from bank import *
 import time
 
 def main():
-    while (True):
+    while (1):
         try:
             ID, money, passwd, icecream_ok, roulette_ok, thief_ok = login(load_members())
         except TypeError:
@@ -18,17 +18,18 @@ def main():
             time.sleep(1)
             ID, money, passwd, icecream_ok, roulette_ok, thief_ok = login(load_members())
         print(ID, "님 안녕하세요!")
-        ment = "ERCIA OPEN_SW 미니게임입니다\n"
-        for i in ment:
-            time.sleep(0.1)
-            print(i, end='')
+        break
+    ment = "ERCIA OPEN_SW 미니게임입니다\n"
+    for i in ment:
+        time.sleep(0.1)
+        print(i, end='')
         ment2 = "로딩중 입니다...\n"
-        for k in ment2:
-            time.sleep(0.3)
-            print(k, end='')
-        while (main2(money,ID,passwd, icecream_ok, roulette_ok, thief_ok) != 0):
-            money, icecream_ok, roulette_ok, thief_ok = load(ID)
-            time.sleep(0.7)
+    for k in ment2:
+        time.sleep(0.3)
+        print(k, end='')
+    while (main2(money,ID,passwd, icecream_ok, roulette_ok, thief_ok) != 0):
+        money, icecream_ok, roulette_ok, thief_ok = load(ID)
+        time.sleep(0.7)
 
 
 def main2(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
