@@ -18,7 +18,7 @@ def store(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
     print("어느 게임을 구매하시겠습니까?")
     print("1. 베스킨라빈스 31 구매하기")
     print("2. 러시안 룰렛 구매하기")
-    print("3. 도둑잡기 구매하기\n")
+    print("3. 도둑잡기 구매하기")
     print("4. 나가기")
     ask = input("구매하실 게임 설명의 번호를 선택해주세요 (1~4)\n")
     while (ask != "1" and ask != "2" and ask != "3" and ask != "4"):
@@ -43,7 +43,7 @@ def store(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
                     request(money, ID, passwd, icecream_ok, roulette_ok, thief_ok)
                 else:
                     print("돈이 부족하여 게임 구매가 거절되었습니다. 초기화면으로 돌아갑니다")
-            elif (ask2 == "N" and ask2 == "n"):
+            elif (ask2 == "N" or ask2 == "n"):
                 print("게임 구매가 취소되었습니다. 초기화면으로 돌아갑니다")
     elif (ask == "2"):
         print("================================")
@@ -65,7 +65,7 @@ def store(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
                     request(money, ID, passwd, icecream_ok, roulette_ok, thief_ok)
                 else:
                     print("돈이 부족하여 게임 구매가 거절되었습니다. 초기화면으로 돌아갑니다")
-            elif (ask2 == "N" and ask2 == "n"):
+            elif (ask2 == "N" or ask2 == "n"):
                 print("게임 구매가 취소되었습니다. 초기화면으로 돌아갑니다")
     elif (ask == "3"):
         print("================================")
@@ -87,7 +87,7 @@ def store(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
                     request(money, ID, passwd, icecream_ok, roulette_ok, thief_ok)
                 else:
                     print("돈이 부족하여 게임 구매가 거절되었습니다. 초기화면으로 돌아갑니다")
-            elif (ask2 == "N" and ask2 == "n"):
+            elif (ask2 == "N" or ask2 == "n"):
                 print("게임 구매가 취소되었습니다. 초기화면으로 돌아갑니다")
     elif (ask == "4"):
         print("초기화면으로 돌아갑니다")
