@@ -105,9 +105,12 @@ def request(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
         time.sleep(0.5)
         if (thief_ok == 1 and icecream_ok == 1 and roulette_ok == 1):
             print("구매하실 게임이 없습니다. 초기화면으로 돌아갑니다")
+            store_members(members)
+            members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
         else:
             store(money, ID, passwd, icecream_ok, roulette_ok, thief_ok)
     elif (restart == "N" or restart == "n"):
         print("초기화면으로 돌아갑니다")
-        members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
         store_members(members)
+        members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
+
