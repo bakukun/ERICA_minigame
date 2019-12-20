@@ -84,7 +84,7 @@ def lotto_main(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
         print("천원이 추가되어 현재 보유금액은", money, "원 입니다")
     else:
         print("꽝이네요....... \n그럴 수 있어요(토닥토닥)")
-        print("현재 보유금액은", money, "원 입니다")
+        print("현재 보유금액은", money, "원 입니다꽝")
     print("===============================================")
     members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
     store_members(members)

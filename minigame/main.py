@@ -19,7 +19,7 @@ def main():
             ID, money, passwd, icecream_ok, roulette_ok, thief_ok = login(load_members())
         print(ID, "님 안녕하세요!")
         break
-    ment = "ERCIA OPEN_SW 미니게임입니다\n"
+    ment = "ERICA OPEN_SW 미니게임입니다\n"
     for i in ment:
         time.sleep(0.1)
         print(i, end='')
