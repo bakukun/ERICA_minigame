@@ -97,20 +97,12 @@ def store(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
 
 def request(money, ID, passwd, icecream_ok, roulette_ok, thief_ok):
     members = load_members()
-    restart = input("다른 게임을 구매하시겠습니까?(Y/N)\n")
-    while (restart != "Y" and restart != "y" and restart != "N" and restart != "n"):
-        restart = input("대문자 혹은 소문을자로 y와 n을 정확하게 입력해주세요!\n")
-    if (restart == "Y" or restart == "y"):
-        print("구매화면으로 돌아갑니다!\n")
-        time.sleep(0.5)
-        if (thief_ok == 1 and icecream_ok == 1 and roulette_ok == 1):
-            print("구매하실 게임이 없습니다. 초기화면으로 돌아갑니다")
-            store_members(members)
-            members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
-        else:
-            store(money, ID, passwd, icecream_ok, roulette_ok, thief_ok)
-    elif (restart == "N" or restart == "n"):
-        print("초기화면으로 돌아갑니다")
-        store_members(members)
-        members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
+    time.sleep(0.5)
+    print("잠시 후 초기화면으로 돌아갑니다\n")
+    if (icecream_ok == 1 and roulette_ok == 1 and thief_ok == 1):
+        print("구매 가능한 게임이 없어요\n초기화면으로 돌아갑니다.")
+    time.sleep(1)
+    store_members(members)
+    members[ID] = passwd, money, icecream_ok, roulette_ok, thief_ok
+
 
